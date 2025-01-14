@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Drawer, List, ListItem, ListItemText, ListItemButton } from "@mui/material";
 import Link  from "next/link";
-import { menuItems } from "@/app/config/menuItems";
+import { menuItems } from "@/config/menuItems";
 
 interface DrawerMenuProps {
   openDrawer: boolean;

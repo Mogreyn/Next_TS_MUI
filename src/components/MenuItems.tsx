@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React,{Fragment} from "react";
 import { Button } from "@mui/material";
-import { menuItems } from "@/app/config/menuItems";
+import { menuItems } from "@/config/menuItems";
 
 const MenuItemsComponent = () => {
   return (

@@ -1,13 +1,6 @@
 import getData from "@/features/fetchData";
 import { useEffect, useState } from "react";
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { Item } from "@/config/types";
 
 const ItemCard = () => {
@@ -85,18 +78,6 @@ const ItemCard = () => {
               {item.price}.00$
             </Typography>
           </CardContent>
-          <Button
-            sx={{
-              marginTop: "10px",
-              backgroundColor: "white",
-              color: "black",
-              "&:hover": {
-                backgroundColor: "lightgray",
-              },
-            }}
-          >
-            Add to Cart
-          </Button>
         </Card>
       ))}
     </Box>

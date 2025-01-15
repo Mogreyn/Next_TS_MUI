@@ -66,6 +66,7 @@ const ItemCard = () => {
 
   return (
     <GridContainer>
+      <title>Store</title>
       {data.map((item) => (
         <StyledCard key={item.id}>
           <CardMedia

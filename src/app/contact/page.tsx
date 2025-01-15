@@ -1,6 +1,67 @@
 "use client";
+
 import React, { useState } from "react";
-import { Box, TextField, Button, Typography } from "@mui/material";
+import { styled, TextField, Button, Typography } from "@mui/material";
+
+const ContactContainer = styled("div")(() => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: "2rem",
+  backgroundColor: "black",
+  overflow: "hidden",
+  marginBottom:"4rem",
+}));
+
+const ContactTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: "1rem",
+  color: "white",
+  fontWeight: "bold",
+  fontSize: "2rem",
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "2.5rem",
+  },
+}));
+
+const Form = styled("form")(() => ({
+  width: "100%",
+  maxWidth: "400px",
+}));
+
+const StyledTextField = styled(TextField)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+  "& .MuiInputLabel-root": {
+    color: "grey",
+  },
+  "& .MuiOutlinedInput-root": {
+    color: "white",
+    "& fieldset": {
+      borderColor: "white",
+    },
+    "&:hover fieldset": {
+      borderColor: "white",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "white",
+    },
+  },
+}));
+
+const SubmitButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+  backgroundColor: "grey",
+  color: "white",
+  "&:hover": {
+    backgroundColor: "white",
+    color: "black",
+  },
+}));
+
+const AddressBox = styled("div")(() => ({
+  marginTop: "2rem",
+  textAlign: "center",
+  color: "white",
+}));
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -15,129 +76,38 @@ const Contact = () => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "2rem",
-        backgroundColor: "black",
-        overflow: "hidden",
-      }}
-    >
-      <Typography
-        variant="h4"
-        sx={{ marginBottom: "1rem", color: "white", fontWeight: "bold" }}
-      >
-        Contact Us
-      </Typography>
-
-      <form
-        onSubmit={handleSubmit}
-        style={{ width: "100%", maxWidth: "400px" }}
-      >
-        <TextField
+    <ContactContainer>
+      <title>Contact us</title>
+      <ContactTitle variant="h4">Contact Us</ContactTitle>
+      <Form onSubmit={handleSubmit}>
+        <StyledTextField
           label="Name"
           variant="outlined"
           fullWidth
-          margin="normal"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          slotProps={{ inputLabel: { style: { color: "grey" } } }}
-          InputProps={{
-            style: { color: "white", borderColor: "grey" },
-          }}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "white",
-              },
-              "&:hover fieldset": {
-                borderColor: "white",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "white",
-              },
-            },
-          }}
         />
-        <TextField
+        <StyledTextField
           label="Email"
           variant="outlined"
           fullWidth
-          margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          slotProps={{ inputLabel: { style: { color: "grey" } } }}
-          InputProps={{
-            style: { color: "white", borderColor: "grey" },
-          }}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "white",
-              },
-              "&:hover fieldset": {
-                borderColor: "white",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "white",
-              },
-            },
-          }}
         />
-        <TextField
+        <StyledTextField
           label="Message"
           variant="outlined"
           fullWidth
           multiline
           rows={4}
-          margin="normal"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          slotProps={{ inputLabel: { style: { color: "grey" } } }}
-          InputProps={{
-            style: { color: "white", borderColor: "grey" },
-          }}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "white",
-              },
-              "&:hover fieldset": {
-                borderColor: "white",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "white",
-              },
-            },
-          }}
         />
-        <Button
-          variant="contained"
-          fullWidth
-          type="submit"
-          sx={{
-            marginTop: "1rem",
-            backgroundColor: "grey",
-            color: "white",
-            ":hover": {
-              backgroundColor: "white",
-              color: "black",
-            },
-          }}
-        >
+        <SubmitButton variant="contained" fullWidth type="submit">
           Send Message
-        </Button>
-      </form>
-
-      <Box
-        sx={{
-          marginTop: "2rem",
-          textAlign: "center",
-          color: "white",
-        }}
-      >
+        </SubmitButton>
+      </Form>
+      <AddressBox>
         <Typography variant="body1">
           1234 Next Shop Street, Suite 567
           <br />
@@ -147,8 +117,8 @@ const Contact = () => {
           <br />
           Phone: (123) 456-7890
         </Typography>
-      </Box>
-    </Box>
+      </AddressBox>
+    </ContactContainer>
   );
 };
 

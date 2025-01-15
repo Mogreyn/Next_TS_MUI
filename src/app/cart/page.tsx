@@ -152,6 +152,7 @@ export default function CartPage() {
   if (loading) {
     return (
       <CartContainer>
+        <title>Cart</title>
         <CircularProgress
           sx={{ color: "white", display: "block", margin: "auto" }}
         />

@@ -5,7 +5,7 @@ import { Button, Badge } from "@mui/material";
 import { useCart } from "@/context/CartContext";
 
 const CartButton = () => {
-  const { cartCount } = useCart(); // Получаем количество товаров в корзине
+  const { cartCount } = useCart(); 
 
   return (
     <Button
@@ -25,7 +25,7 @@ const CartButton = () => {
       aria-label="Cart"
     >
       <Badge
-        badgeContent={cartCount} // Отображаем количество товаров в корзине
+        badgeContent={cartCount} 
         color="primary"
         overlap="circular"
       >

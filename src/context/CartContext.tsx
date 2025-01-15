@@ -11,7 +11,6 @@ interface CartContextValue {
   cartCount: number;
 }
 
-// Create a context with default values
 const CartContext = createContext<CartContextValue>({
   cartItems: [],
   addToCart: () => {},
@@ -25,14 +24,12 @@ interface Props {
   children: React.ReactNode;
 }
 
-// Функция для сохранения корзины в localStorage
 const saveCartToLocalStorage = (cartItems: CartItem[]) => {
   if (typeof window !== "undefined") {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 };
 
-// Функция для загрузки корзины из localStorage
 const loadCartFromLocalStorage = (): CartItem[] => {
   if (typeof window !== "undefined") {
     const cartItems = localStorage.getItem("cartItems");
@@ -44,13 +41,11 @@ const loadCartFromLocalStorage = (): CartItem[] => {
 export const CartProvider = ({ children }: Props) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  // Загружаем данные корзины только на клиенте
   useEffect(() => {
     const savedCartItems = loadCartFromLocalStorage();
     setCartItems(savedCartItems);
   }, []);
 
-  // Сохраняем корзину в localStorage при изменении
   useEffect(() => {
     saveCartToLocalStorage(cartItems);
   }, [cartItems]);
@@ -115,6 +110,7 @@ export const CartProvider = ({ children }: Props) => {
         cartCount,
       }}
     >
+      <title>Cart</title>
       {children}
     </CartContext.Provider>
   );

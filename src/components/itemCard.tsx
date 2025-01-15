@@ -7,7 +7,7 @@ import { Box, Button, CardMedia, Typography } from "@mui/material";
 import { Product } from "@/config/types";
 import { useCart } from "@/context/CartContext";
 
-// Стилей для Card
+
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ const StyledCard = styled.div`
   }
 `;
 
-// Стилей для кнопки
+
 const StyledButton = styled(Button)`
   margin-top: 10px;
   background-color: #ff6347;
@@ -35,7 +35,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-// Стилей для контейнера
+
 const GridContainer = styled(Box)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -45,7 +45,7 @@ const GridContainer = styled(Box)`
   margin-bottom: 4rem;
 `;
 
-// Стилей для контента карточки
+
 const CardContentWrapper = styled.div`
   display: flex;
   flex-direction: column;

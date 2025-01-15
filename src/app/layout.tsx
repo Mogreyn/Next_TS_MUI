@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+"use client";
+
 import React, { ReactNode } from "react";
-import  Header from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
-export const metadata: Metadata = {
-  title: "Next Shop",
-  description: "Next Shop",
-};
+import { CartProvider } from "@/context/CartContext";
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -13,13 +13,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-lt-installed="true">
-      <body style={{
-        marginTop: "4rem",
-        backgroundColor: "black", 
-      }}>
-        <Header />
-        {children}
-        <Footer />
+      <body
+        style={{
+          marginTop: "4rem",
+          backgroundColor: "black",
+        }}
+      >
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

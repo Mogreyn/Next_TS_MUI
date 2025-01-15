@@ -1,7 +1,12 @@
+"use client";
+
 import { ShoppingBasket } from "@mui/icons-material";
-import { Button } from "@mui/material";
+import { Button, Badge } from "@mui/material";
+import { useCart } from "@/context/CartContext";
 
 const CartButton = () => {
+  const { cartCount } = useCart(); // Получаем количество товаров в корзине
+
   return (
     <Button
       href="/cart"
@@ -19,8 +24,15 @@ const CartButton = () => {
       }}
       aria-label="Cart"
     >
-      <ShoppingBasket />
+      <Badge
+        badgeContent={cartCount} // Отображаем количество товаров в корзине
+        color="primary"
+        overlap="circular"
+      >
+        <ShoppingBasket />
+      </Badge>
     </Button>
   );
 };
+
 export default CartButton;
